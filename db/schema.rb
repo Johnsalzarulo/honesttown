@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150104165724) do
+ActiveRecord::Schema.define(version: 20150104170308) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,4 +24,14 @@ ActiveRecord::Schema.define(version: 20150104165724) do
     t.string "email"
   end
 
+  create_table "sentences", force: :cascade do |t|
+    t.string  "subject"
+    t.string  "verb"
+    t.string  "adjective"
+    t.integer "person_id"
+  end
+
+  add_index "sentences", ["person_id"], name: "index_sentences_on_person_id", using: :btree
+
+  add_foreign_key "sentences", "people"
 end
