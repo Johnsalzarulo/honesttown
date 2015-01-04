@@ -1,0 +1,14 @@
+<div class="pheader">
+	<div class="hero">
+		<h1>Here's people living in Honest Town.</h1>
+	</div>
+</div>
+
+<% @people.each do |person| %>
+	<div class='card'>
+		<img src="<%= "#{person.img_url}" %>" class="home_img"></img>
+		<h1><%= link_to "#{person.name}", person %></h1>
+		<h2><%= link_to "#{person.location}", person %></h2>
+	</div>
+<% end %>
+

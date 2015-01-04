@@ -1,5 +1,15 @@
 source 'https://rubygems.org'
 
+# MY GEMS
+
+gem 'pry-rails', :group => :development
+gem 'httparty'
+gem 'nokogiri', '~> 1.6.5'
+gem 'restclient'
+
+# END MY GEMSA
+
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'

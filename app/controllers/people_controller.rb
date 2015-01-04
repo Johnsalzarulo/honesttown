@@ -1,7 +1,7 @@
 class PeopleController < ApplicationController
 
   def new
-    @person = person.new
+    @person = Person.new
   end
 
   def confirm
@@ -14,13 +14,13 @@ class PeopleController < ApplicationController
         @facebooklink= "https://www.facebook.com/search.php?q=#{linksafe}"
         page_data = HTTParty.get("https://www.facebook.com/search.php?q=#{linksafe}")
         @results = Nokogiri::HTML(page_data)
-        @person = person.new
+        @person = Person.new
     end
 
   def create
-    @person = person.new(person_params)
+    @person = Person.new(person_params)
     if @person.save
-       redirect_to '/persons'
+       redirect_to '/people'
     else
       flash[:notice]= @person.errors.full_messages.to_sentence
       render :new
@@ -28,11 +28,11 @@ class PeopleController < ApplicationController
   end
 
   def index
-  	@person = person.all.reverse
+  	@people = Person.all.reverse
   end
 
   def show
-    @person = person.find(params[:id])
+    @person = Person.find(params[:id])
 
     # I DON'T KNOW WHERE TO PUT THESE ARRAYS OF OPTIONS
 
@@ -162,7 +162,7 @@ class PeopleController < ApplicationController
 
   private
 	def person_params
-	 params.require(:person).permit(:name, :img, :location)
+	 params.require(:person).permit(:name, :img_url, :location)
 	end
 
 

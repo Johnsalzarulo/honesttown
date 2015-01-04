@@ -1,0 +1,33 @@
+<h1>Here's what we found for <strong><%= params[:query] %></strong>.</h1>
+<h2>Just click "Leave Honesty" to leave a review for your friend.</h2>
+
+
+<% @results.css('div.mbm').css('div.clearfix').each do |option|%>
+			<!-- Profile IMG -->
+
+			<img src='<%= option.css('img')[0]['src'] %>'></img>
+			
+			<!-- Name -->
+			
+			<h1><%= option.css('div.instant_search_title').css('a').text %></h1>
+			
+			<!-- Location -->
+			
+			<% if option.css('span.fbProfileBylineLabel').css('a')[1].nil? %>
+			<h2>No Location given</h2>
+				<% else %>
+				<h2><%= option.css('span.fbProfileBylineLabel').css('a')[1].text %></h2>
+			<% end %>
+
+			<!-- hidden fields & Submit -->
+
+			<%= form_for @person do |f| %>
+
+				<%= f.hidden_field :img, :value => option.css('img')[0]['src'] %>
+				<%= f.hidden_field :name, :value => option.css('div.instant_search_title').css('a').text %>
+				<%= f.hidden_field :location, :value => if option.css('span.fbProfileBylineLabel').css('a')[1].nil? then 'No location given' else  option.css('span.fbProfileBylineLabel').css('a')[1].text end %>
+				<%= f.submit 'Leave some honesty.' %>
+			<% end %>
+		
+
+<% end %>
