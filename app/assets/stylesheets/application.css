@@ -13,3 +13,21 @@
  *= require_tree .
  *= require_self
  */
+
+ .profileimage{
+ 		height: 100px;
+ 		border-radius: 100px;
+ }
+
+
+.card {
+	height: 400px;
+	background-color: white;
+	font-weight: 900;
+}
+
+
+.cfooter {
+	position: absolute;
+	bottom: 40px;
+}

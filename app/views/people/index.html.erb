@@ -1,14 +1,14 @@
-<div class="pheader">
-	<div class="hero">
-		<h1>Here's people living in Honest Town.</h1>
-	</div>
+<div class="jumbotron">
+	<h2>Here's people living in Honest Town.</h2>
 </div>
 
 <% @people.each do |person| %>
-	<div class='card'>
-		<img src="<%= "#{person.img_url}" %>" class="home_img"></img>
+<div class='container col-lg-3 col-md-4 col-sm-6'>
+	<div class='well card'>
+		<img src="<%= "#{person.img_url}" %>" class="profileimg"></img>
 		<h1><%= link_to "#{person.name}", person %></h1>
 		<h2><%= link_to "#{person.location}", person %></h2>
 	</div>
+</div>
 <% end %>
 

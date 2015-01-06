@@ -1,22 +1,19 @@
-<div class="pheader">
-	<div class="hero">
-		<h1>Here’s what people are saying about <strong><%=@person.name%></strong>, <%=@person.location%>.</h1>
-	</div>
+<div class="jumbotron">
+	<h3>Here’s what people are saying about <strong><%=@person.name%></strong>, <%=@person.location%>.</h3><br>
 </div>
 
-<div class="maincontent">
+<%= render @person.sentences %>
 
-	<%= render @person.sentences %>
+<div class="container col-lg-3 col-md-4 col-sm-6">
+	<div class="well card">
+			<i class="fa fa-plus fa-4x"></i>
+			<h1>Add a card.</h1>
+				<%= form_for([@person, @person.sentences.build]) do |f| %>
+					<%= f.select(:subject, @subject.shuffle, {}, {:class => "select-style form-control"}) %><br>
+					<%= f.select(:verb, @verb.shuffle, {}, {:class => "select-style form-control"}) %><br>
+					<%= f.select(:adjective, @adjective.shuffle, {}, {:class => "select-style form-control"}) %><br>
+				   <%= f.submit class:"btn btn-default" %>
+				<% end %>
+	</div> <!-- well sentence -->
+</div> <!-- container -->
 
-<div class="addcard">
-<h1>Add a card.</h1>
-	<%= form_for([@person, @person.sentences.build]) do |f| %>
-		<%= f.select(:subject, @subject.shuffle, {}, {:class => "select-style"}) %>
-		<%= f.select(:verb, @verb.shuffle, {}, {:class => "select-style"}) %>
-		<%= f.select(:adjective, @adjective.shuffle, {}, {:class => "select-style"}) %>
-	    <%= f.submit %>
-	<% end %>
- </div>
-
-
- </div>
