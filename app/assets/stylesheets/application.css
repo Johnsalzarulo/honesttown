@@ -14,6 +14,7 @@
  *= require_self
  */
 
+
  .profileimage{
  		height: 100px;
  		border-radius: 100px;
@@ -21,9 +22,20 @@
 
 
 .card {
-	height: 400px;
 	background-color: white;
+	height: 400px;
+}
+
+.card h1 {
+	color: black;
 	font-weight: 900;
+	font-size: 42px;
+}
+
+.card h2 {
+	color: black;
+	font-weight: 900;
+	font-size: 38px;
 }
 
 
