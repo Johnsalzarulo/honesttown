@@ -14,6 +14,7 @@ class PeopleController < ApplicationController
         @facebooklink= "https://www.facebook.com/search.php?q=#{linksafe}"
         page_data = HTTParty.get("https://www.facebook.com/search.php?q=#{linksafe}")
         @results = Nokogiri::HTML(page_data)
+
         @person = Person.new
     end
 
@@ -22,8 +23,8 @@ class PeopleController < ApplicationController
     if @person.save
        redirect_to '/people'
     else
-      flash[:notice]= @person.errors.full_messages.to_sentence
-      render :new
+      flash[:alert] = 'That person is already living in Honest Town.'
+      redirect_to people_path
     end
   end
 

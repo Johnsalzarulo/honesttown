@@ -1,35 +1,47 @@
 
-<div class="jumbotron">
-	<h2>Here's what we found for <strong><%= params[:query] %></strong>.</h2>
-	<h3>Just click "Leave Honesty" to leave a review for your friend.</h3>
-</div>
+<% if @results.css('div.mbm').css('div.clearfix').count < 1 %>
 
-<% @results.css('div.mbm').css('div.clearfix').each do |option|%>
-	<div class="container col-lg-3 col-md-4 col-sm-6">
-		<div class="well card">
-			<!-- Profile IMG -->
+	<div class="jumbotron">
+		<h2>We show no results for <strong><%= params[:query] %></strong>.</h2>
+		<h3>You might want to check what they list themselves as on facebook, we search that data to find people.</h3><br>
+		<h4><a href="/people/new">Try a new search.</a></h4>
+	</div>
 
-			<img src='<%= option.css('img')[0]['src'] %>' class="profileimage"></img>
+<% else %>
 
-			<!-- Name -->
+	<div class="jumbotron">
+		<h2>Here's what we found for <strong><%= params[:query] %></strong>.</h2>
+		<h3>Just click "Leave Honesty" to leave a review for your friend.</h3>
+	</div>
 
-			<h2><%= option.css('div.instant_search_title').css('a').text %></h2>
-			<!-- Location -->
-			<% if option.css('span.fbProfileBylineLabel').css('a')[1].nil? %>
-			<h4>No Location given</h4>
-				<% else %>
-				<h4><%= option.css('span.fbProfileBylineLabel').css('a')[1].text %></h4>
-			<% end %>
-			<!-- hidden fields & Submit -->
+	<% @results.css('div.mbm').css('div.clearfix').each do |option|%>
+		<div class="container col-lg-3 col-md-4 col-sm-6">
+			<div class="well card">
+				<!-- Profile IMG -->
 
-			<%= form_for @person do |f| %>
+				<img src='<%= option.css('img')[0]['src'] %>' class="profileimage"></img>
 
-				<%= f.hidden_field :img_url, :value => option.css('img')[0]['src'] %>
-				<%= f.hidden_field :name, :value => option.css('div.instant_search_title').css('a').text %>
-				<%= f.hidden_field :location, :value => if option.css('span.fbProfileBylineLabel').css('a')[1].nil? then 'No location given' else  option.css('span.fbProfileBylineLabel').css('a')[1].text end %>
-				<%= f.submit 'Leave some honesty.', class:"btn btn-default cfooter" %>
-			<% end %>
-		</div><!--  well card -->
-	</div> <!-- container -->
+				<!-- Name -->
+
+				<h2><%= option.css('div.instant_search_title').css('a').text %></h2>
+				<!-- Location -->
+				<% if option.css('span.fbProfileBylineLabel').css('a')[1].nil? %>
+				<h4>No Location given</h4>
+					<% else %>
+					<h4><%= option.css('span.fbProfileBylineLabel').css('a')[1].text %></h4>
+				<% end %>
+				<!-- hidden fields & Submit -->
+
+				<%= form_for @person do |f| %>
+
+					<%= f.hidden_field :img_url, :value => option.css('img')[0]['src'] %>
+					<%= f.hidden_field :name, :value => option.css('div.instant_search_title').css('a').text %>
+					<%= f.hidden_field :location, :value => if option.css('span.fbProfileBylineLabel').css('a')[1].nil? then 'No location given' else  option.css('span.fbProfileBylineLabel').css('a')[1].text end %>
+					<%= f.submit 'Leave some honesty.', class:"btn btn-default cfooter" %>
+				<% end %>
+			</div><!--  well card -->
+		</div> <!-- container -->
+
+	<% end %>
 
 <% end %>
