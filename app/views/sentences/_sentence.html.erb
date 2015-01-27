@@ -6,7 +6,7 @@
 				<%= sentence.adjective %>.</h2>
 			</strong>
 			<div>
-				<p><%= sentence.created_at.strftime("Created on %m/%d/%Y") %></p>
+				<p>Expires in <%= sentence_expires_in(sentence.created_at) %> Days.</p>
 			</div>
 	</div> <!-- well sentence -->
 </div> <!-- container -->
