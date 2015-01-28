@@ -1,7 +1,6 @@
 class SentencesController < ApplicationController
 
-	  helper SentencesHelper
-
+	helper SentencesHelper
 
 	def create
 	    @person = Person.find(params[:person_id])

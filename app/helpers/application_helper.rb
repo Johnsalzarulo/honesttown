@@ -13,4 +13,6 @@ def bootstrap_class_for flash_type
     end
     nil
   end
+
+
 end

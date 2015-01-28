@@ -6,6 +6,7 @@ gem 'pry-rails', :group => :development
 gem 'httparty'
 gem 'nokogiri', '~> 1.6.5'
 gem 'restclient'
+gem 'sidekiq'
 
 # END MY GEMSA
 

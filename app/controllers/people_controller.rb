@@ -1,4 +1,5 @@
 class PeopleController < ApplicationController
+    before_action :delete_expired 
 
   def new
     @person = Person.new
@@ -34,6 +35,7 @@ class PeopleController < ApplicationController
 
   def show
     @person = Person.find(params[:id])
+    DeleteExpiredWorker.perform_async(@person.id)
 
     # I DON'T KNOW WHERE TO PUT THESE ARRAYS OF OPTIONS
 

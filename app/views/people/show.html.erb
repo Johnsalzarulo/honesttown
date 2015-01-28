@@ -2,7 +2,7 @@
 	<h2>Here’s what people are saying about <strong><%=@person.name%></strong>.</h2><br>
 </div>
 
-<%= render @person.sentences %>
+<%= render @person.sentences.not_expired %>
 
 <div class="container col-lg-3 col-md-4 col-sm-6">
 	<div class="well card">
