@@ -1,4 +1,7 @@
 class Person < ActiveRecord::Base
+
+	acts_as_url :slug
+
 	has_many :sentences
 	validates_uniqueness_of :name, :scope => [:location]
 

@@ -9,6 +9,7 @@ gem 'restclient'
 gem 'sidekiq'
 gem 'friendly_id'
 gem 'pg_search'
+gem 'stringex'
 
 # END MY GEMSA
 

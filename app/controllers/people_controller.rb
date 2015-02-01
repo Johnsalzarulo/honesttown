@@ -22,13 +22,14 @@ class PeopleController < ApplicationController
     @person = Person.new(person_params)
     if @person.save
        @person = Person.last
-       redirect_to "/people/#{@person.id}"
+       redirect_to "/people/#{@person.slug}"
     else
       search =  person_params[:name] + " " + person_params[:location]
 
-      @person = PgSearch.multisearch(search)
+      person = PgSearch.multisearch(search)
+      slug = Person.find(person.first.searchable_id).slug
 
-      redirect_to "/people/#{@person.first.searchable_id}"
+      redirect_to "/people/#{slug}"
     end
   end
 
@@ -99,7 +100,6 @@ class PeopleController < ApplicationController
             ['can be','can be'],
             ['might be','might be'],
             ['is','is'],
-            ['is not','is not'],
             ['is definitely','is definitely'],
           ]
 
