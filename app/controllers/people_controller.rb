@@ -21,10 +21,12 @@ class PeopleController < ApplicationController
   def create
     @person = Person.new(person_params)
     if @person.save
-       redirect_to '/people'
+       @person = Person.last
+       redirect_to "/people/#{@person.id}"
     else
       flash[:alert] = 'That person is already living in Honest Town.'
-      redirect_to "people/#{(person_params[:name])}"
+      # This is where I need to redirect to an existing page if there is already that record. 
+      redirect_to "/people"
     end
   end
 
