@@ -7,6 +7,7 @@ gem 'httparty'
 gem 'nokogiri', '~> 1.6.5'
 gem 'restclient'
 gem 'sidekiq'
+gem 'friendly_id'
 
 # END MY GEMSA
 

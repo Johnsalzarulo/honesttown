@@ -25,7 +25,7 @@ class PeopleController < ApplicationController
        redirect_to '/people'
     else
       flash[:alert] = 'That person is already living in Honest Town.'
-      redirect_to people_path
+      redirect_to "people/#{(person_params[:name])}"
     end
   end
 
@@ -34,8 +34,7 @@ class PeopleController < ApplicationController
   end
 
   def show
-    @person = Person.find(params[:id])
-    DeleteExpiredWorker.perform_async(@person.id)
+    @person = Person.friendly.find(params[:id])
 
     # I DON'T KNOW WHERE TO PUT THESE ARRAYS OF OPTIONS
 
@@ -165,7 +164,7 @@ class PeopleController < ApplicationController
 
   private
 	def person_params
-	 params.require(:person).permit(:name, :img_url, :location)
+	 params.require(:person).permit(:name, :img_url, :location, :url)
 	end
 
 

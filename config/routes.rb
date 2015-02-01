@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   get "results" => 'people#results'
   get "search" => 'people#search'
 
+
 end
