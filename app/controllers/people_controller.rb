@@ -15,7 +15,6 @@ class PeopleController < ApplicationController
         @facebooklink= "https://www.facebook.com/search.php?q=#{linksafe}"
         page_data = HTTParty.get("https://www.facebook.com/search.php?q=#{linksafe}")
         @results = Nokogiri::HTML(page_data)
-
         @person = Person.new
     end
 
