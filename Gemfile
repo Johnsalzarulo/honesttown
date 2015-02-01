@@ -8,6 +8,7 @@ gem 'nokogiri', '~> 1.6.5'
 gem 'restclient'
 gem 'sidekiq'
 gem 'friendly_id'
+gem 'pg_search'
 
 # END MY GEMSA
 

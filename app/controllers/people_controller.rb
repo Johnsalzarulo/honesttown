@@ -24,9 +24,11 @@ class PeopleController < ApplicationController
        @person = Person.last
        redirect_to "/people/#{@person.id}"
     else
-      flash[:alert] = 'That person is already living in Honest Town.'
-      # This is where I need to redirect to an existing page if there is already that record. 
-      redirect_to "/people"
+      search =  person_params[:name] + " " + person_params[:location]
+
+      @person = PgSearch.multisearch(search)
+
+      redirect_to "/people/#{@person.first.searchable_id}"
     end
   end
 
@@ -76,9 +78,7 @@ class PeopleController < ApplicationController
             ['politics', 'politics'],
             ['fashion sense', 'fashion sense'],
             ['oversharing', 'oversharing'],
-            ['thoughts on ferguson', 'thoughts on ferguson'],
             ['love of Lady Gaga','love of Lady Gaga'],
-            ['grooming habits', 'grooming habits'],
             ['Cooking', 'Cooking'],
             ['acoustic guitar playing at parties', 'acoustic guitar playing at parties'],
             ['Swag', 'Swag'],
@@ -87,11 +87,11 @@ class PeopleController < ApplicationController
             ['flirtatiousness','flirtatiousness'],
             ['Email etiquette', 'Email etiquette'],
             ['Tipping', 'Tipping'],
-            ['Fantasy football skills', 'Fantasy football skills'],
-            ['Retweets', 'Retweets'],
+            ['Fantasy football skill', 'Fantasy football skill'],
+            ['Retweeting', 'Retweeting'],
             ['Follow through', 'Follow through'],
             ['Schtick', 'Schtick'],
-            ['Posting baby photos', 'Posting baby photos'],
+            ['Posting of baby photos', 'Posting of baby photos'],
             ['V neck collection', 'V neck collection']
           ]
           
@@ -101,20 +101,18 @@ class PeopleController < ApplicationController
             ['is','is'],
             ['is not','is not'],
             ['is definitely','is definitely'],
-            ['is most definitely','is most definitely']
           ]
 
 
 
       @adjective =[
           ['good','good'],
-          ['sh*tty', 'sh*tty'], 
+          ['crappy', 'crappy'], 
           ['fantastic','fantastic'],
           ['bleak','bleak'],
           ['in need of improvement','in need of improvement'],
           ['one hunna', 'one hunna'],
           ['great','great'],
-          ['not great','not great'],
           ['too much','too much'],
           ['above average','above average'],
           ['below average','below average'],
@@ -128,7 +126,6 @@ class PeopleController < ApplicationController
           ['zilch', 'zilch'],
           ['off the charts', 'off the charts'],
           ['come on', 'come on'],
-          ['to go', 'to go'],
           ['backwards', 'backwards'],
           ['much improved','much improved'],
           ['bad','bad'],
@@ -142,10 +139,8 @@ class PeopleController < ApplicationController
           ['obtuse', 'obtuse'],
           ['cute', 'cute'],
           ['tired', 'tired'],
-          ['too much', 'too much'],
           ['over the top', 'over the top'],
           ['comical', 'comical'],
-          ['f*cking insane', 'f*cking insane'],
           ['hypocritical', 'hypocritical'], 
           ['aggravating', 'aggravating'], 
           ['surprisingly good', 'surprisingly good'],
