@@ -1,12 +1,5 @@
-<div class="navbar navbar-default">
-  <div class="navbar-header">
-    <a class="navbar-brand" href="/"><strong>Honest</strong>Town.</a>
-  </div>
-</div>
-
-<div class='container'>
-
-<div class="jumbotron">
+<div class="jumbotron text-center white">
+	<h2>Welcome to <a href="/"><strong>HonestTown.</strong></a></h2>
 	<h2>Here’s what people are saying about <strong><%=@person.name%></strong>.</h2><br>
 </div>
 
@@ -20,9 +13,7 @@
 					<%= f.select(:subject, $subject.shuffle, {}, {:class => "select-style form-control"}) %><br>
 					<%= f.select(:verb, $verb.shuffle, {}, {:class => "select-style form-control"}) %><br>
 					<%= f.select(:adjective, $adjective.shuffle, {}, {:class => "select-style form-control"}) %><br>
-				   <%= f.submit class:"btn btn-default" %>
+				   <%= f.submit "Add Card", class:"btn btn-primary btn-lg" %>
 				<% end %>
 	</div> <!-- well sentence -->
 </div> <!-- container -->
-
-</div>

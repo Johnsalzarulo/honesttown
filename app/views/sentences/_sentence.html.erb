@@ -1,12 +1,15 @@
+<form>
 <div class="container col-lg-3 col-md-4 col-sm-6">
 	<div class="well card">
-			<strong>
-				<h2><%= sentence.subject.capitalize %>
-				<%= sentence.verb %>
-				<%= sentence.adjective %>.</h2>
-			</strong>
-			<div>
+		<strong>
+			<h2><%= sentence.subject.capitalize %>
+			<%= sentence.verb %>
+			<%= sentence.adjective %>.</h2>
+		</strong>
+
+		<div class='cfooter'>
 				<p>Expires in <%= sentence_expires_in(sentence.created_at) %> Days.</p>
-			</div>
-	</div> <!-- well sentence -->
+		</div>
+	</div> 
 </div> <!-- container -->
+</form>

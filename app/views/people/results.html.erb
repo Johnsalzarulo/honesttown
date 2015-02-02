@@ -37,7 +37,7 @@
 					<%= f.hidden_field :img_url, :value => option.css('img')[0]['src'] %>
 					<%= f.hidden_field :name, :value => option.css('div.instant_search_title').css('a').text %>
 					<%= f.hidden_field :location, :value => if option.css('span.fbProfileBylineLabel').css('a')[1].nil? then 'No location given' else  option.css('span.fbProfileBylineLabel').css('a')[1].text end %>
-					<%= f.submit 'Leave some honesty.', class:"btn btn-default btn-lg cfooter" %>
+					<%= f.submit 'Leave some honesty.', class:"btn btn-primary btn-lg cfooter" %>
 				<% end %>
 			</div><!--  well card -->
 		</div> <!-- container -->
