@@ -1,9 +1,9 @@
-<div class="jumbotron text-center white">
-		<h1>Welcome to <strong>HonestTown.</strong></h1>
-		<h2>Say what you've always wanted to say.</h2>
+<div class="jumbotron text-center">
+		<h2>Welcome to <strong>HonestTown.</strong></h2>
+		<h3>Say what you've always wanted to say.</h3>
 </div>
 
-<div class="jumbotron text-center white" id="find">
+<div class="jumbotron text-center" id="find">
 	<h2><strong>Find someone. Leave some honesty.</strong></h2>
 	<h3>It's completely anonymous, and posts disappear in 30 days.</h3
 
@@ -25,12 +25,12 @@
 		<div class="col-md-3 col-sm-6">
 			<div class="well card small text-left">
 					<strong>
-						<h2>
-							<%= link_to sentence.person.name.split.first.possessive, sentence.person %>
+						<h3>
+							<%= link_to sentence.person.name.split.first.possessive, sentence.person %><br>
 							<%= sentence.subject.capitalize %>
 							<%= sentence.verb%>
 							<%= sentence.adjective%>.
-						</h2>
+						</h3>
 					</strong>
 					<p class="cfooter">Expires in <%= sentence_expires_in(sentence.created_at) %> Days.</p>
 			</div>
