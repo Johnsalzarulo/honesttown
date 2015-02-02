@@ -1,19 +1,28 @@
+<div class="navbar navbar-default">
+  <div class="navbar-header">
+    <a class="navbar-brand" href="/"><strong>Honest</strong>Town.</a>
+  </div>
+</div>
+
+<div class='container'>
+
 <div class="jumbotron">
 	<h2>Here’s what people are saying about <strong><%=@person.name%></strong>.</h2><br>
 </div>
 
-<%= render @person.sentences.not_expired %>
+<%= render @person.sentences.not_expired.last(24) %>
 
 <div class="container col-lg-3 col-md-4 col-sm-6">
 	<div class="well card">
 			<i class="fa fa-plus fa-4x"></i>
 			<h1>Add a card.</h1>
 				<%= form_for([@person, @person.sentences.build]) do |f| %>
-					<%= f.select(:subject, @subject.shuffle, {}, {:class => "select-style form-control"}) %><br>
-					<%= f.select(:verb, @verb.shuffle, {}, {:class => "select-style form-control"}) %><br>
-					<%= f.select(:adjective, @adjective.shuffle, {}, {:class => "select-style form-control"}) %><br>
+					<%= f.select(:subject, $subject.shuffle, {}, {:class => "select-style form-control"}) %><br>
+					<%= f.select(:verb, $verb.shuffle, {}, {:class => "select-style form-control"}) %><br>
+					<%= f.select(:adjective, $adjective.shuffle, {}, {:class => "select-style form-control"}) %><br>
 				   <%= f.submit class:"btn btn-default" %>
 				<% end %>
 	</div> <!-- well sentence -->
 </div> <!-- container -->
 
+</div>

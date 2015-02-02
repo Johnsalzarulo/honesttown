@@ -26,6 +26,11 @@
 	height: 400px;
 }
 
+.container .small {
+	background-color: white;
+	height: 230px;
+}
+
 .card h1 {
 	color: black;
 	font-weight: 900;

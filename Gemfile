@@ -10,6 +10,7 @@ gem 'sidekiq'
 gem 'friendly_id'
 gem 'pg_search'
 gem 'stringex'
+gem 'possessive'
 
 # END MY GEMSA
 
