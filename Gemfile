@@ -1,5 +1,9 @@
 source 'https://rubygems.org'
 
+
+ruby '2.0.0'
+
+
 # MY GEMS
 
 gem 'pry-rails', :group => :development
@@ -11,6 +15,8 @@ gem 'friendly_id'
 gem 'pg_search'
 gem 'stringex'
 gem 'possessive'
+gem 'rails_12factor'
+
 
 # END MY GEMSA
 
