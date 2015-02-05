@@ -3,17 +3,14 @@
 
 <% if @results.css('div.mbm').css('div.clearfix').count < 1 %>
 
-	<div class="jumbotron">
+	<div class="white jumbotron">
 		<h2>We show no results for <strong><%= params[:query] %></strong>.</h2>
-		<h3>You might want to check what they list themselves as on facebook, we search that data to find people.</h3><br>
-		<h4><a href="/people/new">Try a new search.</a></h4>
 	</div>
 
 <% else %>
 
-	<div class="jumbotron">
+	<div class="white jumbotron">
 		<h2>Here's what we found for <strong><%= params[:query] %></strong>.</h2>
-		<h3>Just click "Leave Honesty".</h3>
 	</div>
 
 	<% @results.css('div.mbm').css('div.clearfix').each do |option|%>

@@ -1,8 +1,43 @@
 <% @title = "HonestTown. Say what you've always wanted to say." %>
 
-<div class="jumbotron text-center">
-		<h2>Welcome to <strong>HonestTown.</strong></h2>
-		<h3>Say what you've always wanted to say.</h3>
+<div class="jumbotron white text-center">
+		<h2><strong>HonestTown.</strong></h2>
+		<h3>Say what really needs to be said.</h3>
+		<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">How it works</button>
+
+		<!-- Modal -->
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+
+		    	<div class="modal-header">
+        		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      		</div>
+		      <div class="modal-body">
+
+						<div class="row">
+									<h1><div class="fa fa-search"></div></h1>
+									<strong><h3>Find a Friend.</strong></h3>
+									<p>Use our search to find people accross social networks, no login needed.</p>
+
+									<h1><div class="fa fa-plus"></div></h1>
+									<strong><h3>Leave Honesty.</strong></h3>
+									<p>Build sentences to say what needs to be said.</p>
+
+									<h1><div class="fa fa-share"></div></h1>
+									<strong><h3>Share it.</strong></h3>
+									<p>Anonymously send out a tweet from our account to any user you choose.</p>
+						</div>
+
+		      
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-default" data-dismiss="modal">Cool, got it.</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+
 </div>
 
 <div class="jumbotron text-center" id="find">
@@ -11,32 +46,35 @@
 
 	<form>
 	<form action="/results" class="form-group">
-	<p>Tip: You may want to enter city to narrow things down.</p>
+	<p>You may want to enter city to narrow things down.</p>
 	<br>
 	<input type="text" name="query" autocomplete="off" placeholder="Search..." class="form-control input-lg"></input>
 	<br>
-	<input type="submit" value="Find 'em" class="btn btn-primary btn-lg" class="form-control"></input>
+	<input type="submit" value="find 'em" class="btn btn-primary btn-lg" class="form-control"></input>
 	</form>
 </div>
 
-<div class="row well text-center hidden-xs">
-	
-	<h1>Some recent honesty.</h2><br>
 
-	<% @sentences.each do |sentence|%>
-		<div class="col-md-3 col-sm-6">
-			<div class="well card small text-left">
-					<strong>
-						<h3>
-							<%= link_to sentence.person.name.split.first.possessive, sentence.person %><br>
-							<%= sentence.subject.capitalize %>
-							<%= sentence.verb%>
-							<%= sentence.adjective%>.
-						</h3>
-					</strong>
-					<p class="cfooter">Expires in <%= sentence_expires_in(sentence.created_at) %> Days.</p>
+<div class="jumbotron text-left hidden-xs">
+	<div class="row">
+	
+		<h2>Some recent honesty.</h2><br>
+
+		<% @sentences.each do |sentence|%>
+			<div class="col-md-3 col-sm-6">
+				<div class="well card small text-left">
+						<strong>
+							<h3>
+								<%= link_to sentence.person.name.split.first.possessive, sentence.person %><br>
+								<%= sentence.subject.capitalize %>
+								<%= sentence.verb%>
+								<%= sentence.adjective%>.
+							</h3>
+						</strong>
+						<p class="cfooter">Expires in <%= sentence_expires_in(sentence.created_at) %> Days.</p>
+				</div>
 			</div>
-		</div>
-	<% end %>
+		<% end %>
+	</div>
 
 </div> 

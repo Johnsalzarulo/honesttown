@@ -6,4 +6,8 @@ class CreateSentences < ActiveRecord::Migration
       t.string :adjective
     end
   end
+
+  DeleteExpiredWorker.perform_async('bob', 5)
+
+
 end
