@@ -1,5 +1,4 @@
 class PeopleController < ApplicationController
-    before_action :delete_expired 
 
   def new
     @person = Person.new

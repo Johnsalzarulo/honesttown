@@ -9,7 +9,7 @@ class Sentence < ActiveRecord::Base
 
      def self.expired
       select do |record| 
-      	!record.expired?
+      	record.expired?
       end
     end
 

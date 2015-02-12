@@ -16,6 +16,9 @@ gem 'pg_search'
 gem 'stringex'
 gem 'possessive'
 gem 'rails_12factor'
+gem 'omniauth-twitter'
+gem 'twitter'
+gem 'figaro'
 
 
 # END MY GEMSA

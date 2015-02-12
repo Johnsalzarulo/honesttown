@@ -14,6 +14,44 @@
  *= require_self
  */
 
+ .modal-content {
+ 	padding: 25px;
+ }
+
+.jumbotron p {
+	font-size: 1em;
+
+}
+
+.person {
+	min-height: 400px; 
+	padding-top: 30px;
+}
+
+.p1 {
+ 	background: url(/assets/person_7.jpg);
+ 	background-size: cover;
+ }
+
+.p2 {
+ 	background: url(/assets/person_5.jpg);
+ 	background-size: cover;
+ }
+
+ .p3 {
+ 	background: url(/assets/person_11.jpg);
+ 	background-size: cover;
+ }
+
+
+ .tiny {
+ 	border: none;
+ 	max-height: 170px;
+ 	width: 220px;
+ 	margin-right: auto;
+ 	margin-left: auto;
+ }
+
 
  .profileimage{
  		height: 100px;
