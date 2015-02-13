@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150212222453) do
+ActiveRecord::Schema.define(version: 20150213232031) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(version: 20150212222453) do
   create_table "tweets", force: :cascade do |t|
     t.string  "tweetcontent"
     t.integer "sentence_id"
+    t.string  "username"
   end
 
   add_index "tweets", ["sentence_id"], name: "index_tweets_on_sentence_id", using: :btree

@@ -37,6 +37,7 @@ class PeopleController < ApplicationController
 
   def show
     @person = Person.friendly.find(params[:id])
+    @tweet = Tweet.new
   end
 
   private

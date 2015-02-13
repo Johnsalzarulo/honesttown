@@ -26,6 +26,23 @@
 
 
 
+<div class="container col-lg-3 col-md-4 col-sm-6">
+		<div class="well card">
+				<h1><div class="fa fa-share"></div></h1>
+				<h2>Share this page annonymously</h2>
+						<%= form_for @tweet do |f| %>
+							<%= f.text_field :username, class:'form-control input-sm', placeholder:'@anytwitteruser...' %> <br>
+						   <%= f.submit "Send Tweet", class:"btn btn-primary btn-lg" %>
+						   <%= hidden_field_tag('tweet[tweetcontent]', @person.slug) %> <br>
+						<% end %>
+		</div> <!-- well sentence -->
+	</div> <!-- container -->
+
+
+
+
+
+
 </div>
 
 

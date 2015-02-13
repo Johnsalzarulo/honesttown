@@ -5,16 +5,14 @@ Rails.application.routes.draw do
   get "share" => 'pages#share'
 
   resources :people do
-      resources :sentences do 
-      	resources :tweets
-      end
+      resources :sentences 
   end
 
-  resources :tweets
+  resources :tweets do
+  end
 
   get "results" => 'people#results'
   get "search" => 'people#search'
-  get "share" => 'tweets#share'
 
 
 end

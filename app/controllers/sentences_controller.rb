@@ -8,6 +8,8 @@ class SentencesController < ApplicationController
 	    redirect_to person_path(@person)
 	end
 
+
+
 	private
 	    def sentence_params
 	      params.require(:sentence).permit(:verb, :subject, :adjective)
