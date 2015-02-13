@@ -8,8 +8,48 @@
 			</strong>
 
 			<div class='cfooter'>
-				# NEED TO SET UP FORM FOR TWEETS HERE SOMEHOW
-					<p>Expires in <%= sentence_expires_in(sentence.created_at) %> Days.</p>
+
+				<a href="#myModal" data-toggle="modal" data-target="#myModal">Share this annonymously.</a>
+
+				<!-- Modal -->
+					<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+					  <div class="modal-dialog">
+					    <div class="modal-content white">
+
+					      <div class="modal-body">
+						      	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+											<form action="/create" class="form-group">
+													<p>Tip: You may want to enter city to narrow things down.</p>
+													<br>
+													<input type="text" name="twittercontent" autocomplete="off" placeholder="Tweet content" class="form-control"></input>
+													<br>
+													<input type="submit" value="Find 'em" class="btn btn-default"  class="form-control"></input>
+												</form>
+
+
+										<div class="row">
+															<h2>Tweet this anonymously from the <strong>HonestTown</strong> account.</h2>
+															<h4>
+															"<%= sentence.person.name.split.first.possessive %>
+															<%= sentence.subject %>
+															<%= sentence.verb %>
+															<%= sentence.adjective %>."
+															</h4>
+													<button type="button" class="btn btn-primary btn-lg" data-dismiss="modal">Cancel</button>
+										</div>
+					      </div>
+					    </div>
+					  </div>
+					</div>
+
+
+
+
+
+
+
+				<p>Expires in <%= sentence_expires_in(sentence.created_at) %> Days.</p>
 			</div>
 
 		</div> 

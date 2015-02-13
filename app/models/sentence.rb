@@ -1,5 +1,6 @@
 class Sentence < ActiveRecord::Base
 	belongs_to :person
+  has_many :tweets
 
     def self.not_expired
       select do |record| 

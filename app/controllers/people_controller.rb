@@ -37,7 +37,6 @@ class PeopleController < ApplicationController
 
   def show
     @person = Person.friendly.find(params[:id])
-
   end
 
   private
