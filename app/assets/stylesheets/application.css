@@ -30,19 +30,19 @@
 
 .p1 {
  	background: 
-	    linear-gradient(rgba(50, 50, 50, 0.75), rgba(50, 50, 50, 0.20)),url("../assets/person_7.jpg");
+	    linear-gradient(rgba(50, 50, 50, 0.75), rgba(50, 50, 50, 0.20)),url("https://s3.amazonaws.com/johnsalzarulo_assets/honesttown/person_7.jpg");
  	background-size: cover;
  }
 
 .p2 {
  	background: 
-	    linear-gradient(rgba(50, 50, 50, 0.75), rgba(50, 50, 50, 0.20)),url("../assets/person_5.jpg");
+	    linear-gradient(rgba(50, 50, 50, 0.75), rgba(50, 50, 50, 0.20)),url("https://s3.amazonaws.com/johnsalzarulo_assets/honesttown/person_5.jpg");
  	background-size: cover;
  }
 
  .p3 {
  	 	background: 
-	    linear-gradient(rgba(50, 50, 50, 0.75), rgba(50, 50, 50, 0.20)),url("../assets/person_11.jpg");
+	    linear-gradient(rgba(50, 50, 50, 0.75), rgba(50, 50, 50, 0.20)),url("https://s3.amazonaws.com/johnsalzarulo_assets/honesttown/person_5.jpg");
  	background-size: cover;
  }
 
