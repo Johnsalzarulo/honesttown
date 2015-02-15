@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root 'pages#home'
   get "share" => 'pages#share'
 
-  resources :people do
+  resources :people, except: [:index, :new] do
       resources :sentences 
   end
 
@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   get "results" => 'people#results'
   get "search" => 'people#search'
+  get "people" => 'pages#home'
 
 
 end

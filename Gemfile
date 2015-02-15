@@ -19,6 +19,7 @@ gem 'rails_12factor'
 gem 'omniauth-twitter'
 gem 'twitter'
 gem 'figaro'
+gem 'dotenv-rails', :groups => [:development, :test]
 
 
 # END MY GEMSA

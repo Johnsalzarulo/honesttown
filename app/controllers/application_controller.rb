@@ -4,6 +4,9 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   helper :all
 
+  Dotenv::Railtie.load
+  HOSTNAME = ENV['HOSTNAME']
+
   def delete_expired 
     Sentence.expired.each do |sentence| 
       if sentence.expired? 

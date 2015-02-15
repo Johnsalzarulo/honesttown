@@ -5,16 +5,25 @@ class TweetsController < ApplicationController
 	end	
 
 	def create 
+
 	  @tweet = Tweet.new(tweet_params)
 	  	client = Twitter::REST::Client.new do |config|
-		  config.consumer_key = 'ulpN3GvX9NkUgoqYgUnhVDHhu'
-		  config.consumer_secret = '1l8wgtGSx3hjPsPiHSwuNiPjYOfLl8QZDLEoppnb5sbJhhLeRV'
-		  config.access_token = '2991147611-i8TwaBMf9t4VA2TQ7g6y1irPCxTSb24E9xY05Nv'
-		  config.access_token_secret = 'j5ShwgAyDsPcRHVJXpGl7NTTAwN54o7bhR9JbC4o4FN65'
+		  config.consumer_key = ENV['CONSUMER_KEY']
+		  config.consumer_secret = ENV['CONSUMER_SECRET']
+		  config.access_token = ENV['ACCESS_TOKEN']
+		  config.access_token_secret = ENV['ACCESS_TOKEN_SECRET']
 		end
-		@message = @tweet.username.to_s + " Someone anonomously left you a reveiw. http://www.honest.town/people/" + @tweet.tweetcontent.to_s
-	  client.update(@message)
-	  redirect_to '/'
+
+		if @tweet.username.first(1) == '@'
+			@username = @tweet.username.to_s.gsub(/\s+/, "").first(15)
+		else
+			@username = "@" + @tweet.username.to_s.gsub(/\s+/, "").first(15)
+		end
+		
+		@message = @username + " Someone anonomously left you a reveiw. http://www.honest.town/people/" + @tweet.tweetcontent.to_s
+	  client.update(@message) 
+	  redirect_to "/people/#{@tweet.tweetcontent.to_s}", notice: "This page has been shared with #{@username.to_s}"
+	
 	end
 
 	private
