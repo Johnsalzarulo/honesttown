@@ -21,8 +21,14 @@ class TweetsController < ApplicationController
 		end
 		
 		@message = @username + " Someone anonomously left you a reveiw. http://www.honest.town/people/" + @tweet.tweetcontent.to_s
-	  client.update(@message) 
-	  redirect_to "/people/#{@tweet.tweetcontent.to_s}", notice: "This page has been shared with #{@username.to_s}"
+
+		if @tweet.save
+			client.update(@message) 
+	  	redirect_to "/people/#{@tweet.tweetcontent.to_s}", notice: "This page has been shared with #{@username.to_s}"
+		else 
+			redirect_to "/people/#{@tweet.tweetcontent.to_s}", alert: "Username can't be blank. Please enter a twitter username to tweet at them."
+		end
+	 
 	
 	end
 

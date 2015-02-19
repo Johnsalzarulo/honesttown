@@ -1,6 +1,5 @@
 <% @title = "HonestTown. Search results" %>
 
-
 <% if @results.css('div.mbm').css('div.clearfix').count < 1 %>
 
 	<div class="white jumbotron">
@@ -11,6 +10,9 @@
 
 	<div class="white jumbotron">
 		<h2>Here's what we found for <strong><%= params[:query] %></strong>.</h2>
+		<h4><strong>Can't find someone?</strong> Try including their city, school or work.</h4>
+		<a class="btn btn-primary" href="/#find">Try Again</a>
+
 	</div>
 
 	<% @results.css('div.mbm').css('div.clearfix').each do |option|%>
