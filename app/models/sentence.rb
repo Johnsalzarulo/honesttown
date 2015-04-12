@@ -18,7 +18,7 @@ class Sentence < ActiveRecord::Base
 
     def expired?
     	@expired = true
-    	if ((created_at.to_date + 30).to_date - DateTime.now.to_date).to_i == 0
+    	if ((created_at.to_date + 30).to_date - DateTime.now.to_date).to_i < 1
 				@expired = true
 			else
 				@expired = false
